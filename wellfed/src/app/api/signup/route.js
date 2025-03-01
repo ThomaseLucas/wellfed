@@ -46,13 +46,13 @@ export async function POST(req) {
     await users.insertOne(newUser);
 
     });
-    return new NextResponse({ error: 'User Created' }, { status: 200 });
+    return  NextResponse.json({ error: 'User Created' }, { status: 200 });
 
 
 
     } catch (error) {
     console.error(error);
-        return new NextResponse({ error: 'Internal Server Error' }, { status: 500 });
+        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
 }
 
