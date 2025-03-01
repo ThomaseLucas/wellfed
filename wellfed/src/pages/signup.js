@@ -13,7 +13,8 @@ export default function Signup() {
     const password = event.target.password.value;
     console.log(event)
 
-      signUp(username, password);
+      let res = await signUp(username, password);
+      setMessage(res.error);
 
     
   };

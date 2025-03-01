@@ -7,13 +7,15 @@ import login from '../app/accountManagement/login';
 export default function Login() {
   const [message, setMessage] = useState(''); // State for displaying messages
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const username = event.target.username.value;
     const password = event.target.password.value;
     console.log(event)
 
-      login(username, password); 
+    let res = await login(username, password); // Await the login function
+    console.log(res.message); // Log the actual response
+    setMessage(res.message); // Set the message state
     
   };
 

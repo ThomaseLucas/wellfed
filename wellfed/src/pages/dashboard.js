@@ -7,12 +7,6 @@ export default function Dashboard() {
     return (
         <div className="bg-gray-100">
             <Header />
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-1/12 text-lg"
-            >
-                <Link href="/" scroll={false}>Home
-                </Link>
-
-            </button>
 
             <div className="min-h-screen flex items-center justify-center">
                 
