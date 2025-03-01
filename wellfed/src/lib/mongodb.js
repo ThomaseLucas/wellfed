@@ -1,16 +1,6 @@
-import { MongoClient } from "mongodb";
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
-
-let client;
-let clientPromise;
-
-try {
-  client = new MongoClient(process.env.MONGODB_URI, { serverSelectionTimeoutMS: 5000 });
-  clientPromise = client.connect()
-
-} catch (error) {
-  console.error("CRITICAL ERROR: Failed to create MongoClient:", error);
-  clientPromise = Promise.resolve(null);
-}
+const client = new MongoClient(process.env.MONGODB_URI); // Connection URI
+const clientPromise = client.connect(); // Connect to the MongoDB cluster
 
 export default clientPromise;
