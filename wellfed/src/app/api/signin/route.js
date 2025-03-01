@@ -34,7 +34,7 @@ export async function POST(req) {
         console.log("User authenticated:", username);
 
         const response = NextResponse.json({message: "Login successful"});
-        response.headers.set("Set-Cookie", `username=${username}; Path=/; HttpOnly; SameSite=Strict`);
+        response.headers.set("Set-Cookie", `username=${username}; Path=/; SameSite=Strict`);
         return response;
 
     } catch (error) {
