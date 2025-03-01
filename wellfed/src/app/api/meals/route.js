@@ -1,6 +1,14 @@
 import clientPromise from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 
+
+function getUsernameFromCookie(req) {
+    const cookieHeader = req.headers.get("Cookie");
+    if (!cookieHeader) return null;
+
+    const cookies = Object.fromEntries(cookieHeader.split("; ").map(c => c.split("=")));
+    return cookies.username || null;
+}
 // Function to generate a new meal plan (same logic as before)
 async function fetchRecipeDetails(recipeName) {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(recipeName)}`;
@@ -10,7 +18,7 @@ async function fetchRecipeDetails(recipeName) {
 }
 
 async function generateMealPlan(username, usersCollection) {
-    console.log("🔹 Generating new meal plan...");
+    console.log("Generating new meal plan...");
 
     const user = await usersCollection.findOne({ username });
     if (!user) return null;
@@ -73,7 +81,9 @@ export async function GET(req) {
         const usersCollection = db.collection("users");
 
         // TODO: Replace with actual authentication logic
-        const username = "test";
+        const username = getUsernameFromCookie(req);
+        if (!username) return NextResponse.json({ message: "User not authenticated" }, { status: 403 });
+
         const user = await usersCollection.findOne({ username });
 
         if (!user) return NextResponse.json({ message: "User not found" }, { status: 403 });
@@ -101,7 +111,7 @@ export async function POST(req) {
         const usersCollection = db.collection("users");
 
         // TODO: Replace with actual authentication logic
-        const username = "test";
+        const username = getUsernameFromCookie(req);
         const newMealPlan = await generateMealPlan(username, usersCollection);
         
         return NextResponse.json({ mealPlan: newMealPlan });

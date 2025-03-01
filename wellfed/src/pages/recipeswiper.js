@@ -1,9 +1,25 @@
 import { useState, useEffect } from 'react';
 import '../app/globals.css';
+import addRecipetoDatabase from '../app/accountManagement/addRecipeToDatabase.js';
+
 
 export default function RecipeSwiper() {
-    const [recipe, setRecipe] = useState(null);
+    const [cookieValue, setCookieValue] = useState('');
 
+    useEffect(() => {
+      // Retrieve the cookie value
+      const cookies = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('username='))
+        ?.split('=')[1];
+  
+      setCookieValue(cookies || 'No cookie found');
+    }, []);
+  
+
+
+    const [recipe, setRecipe] = useState(null);
+    
     useEffect(() => {
         getRecipe();
     }, []);
@@ -39,12 +55,13 @@ export default function RecipeSwiper() {
     }
 
     function swipeRight() {
-        console.log("swiped right");
+        addRecipetoDatabase(cookieValue, recipe.name, "whitelist");
         getRecipe();
     }
 
     function swipeLeft() {
-        console.log("swiped left");
+        addRecipetoDatabase(cookieValue, recipe.name, "blacklist");
+        getRecipe();
     }
 
     return (

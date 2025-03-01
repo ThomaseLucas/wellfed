@@ -32,7 +32,10 @@ export async function POST(req) {
         }
 
         console.log("User authenticated:", username);
-        return NextResponse.json({ username });
+
+        const response = NextResponse.json({message: "Login successful"});
+        response.headers.set("Set-Cookie", `username=${username}; Path=/; SameSite=Strict`);
+        return response;
 
     } catch (error) {
         console.error("API Error:", error);
