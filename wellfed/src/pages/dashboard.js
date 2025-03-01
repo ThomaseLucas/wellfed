@@ -1,12 +1,26 @@
+import '../app/globals.css';
+import Link from 'next/link'
 
 export default function Dashboard() {
     return (
-        <form>
-            <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        <div className="bg-gray-100">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-1/12 text-lg"
             >
-                Recipe
+                <Link href="/" scroll={false}>Home
+                </Link>
             </button>
-        </form>
+
+            <div className="min-h-screen flex items-center justify-center">
+                <form>
+                    <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded h-30 w-50 m-10 text-2xl">Recipe
+                    </button>
+                    
+                    <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded h-30 w-50 m-10 text-2xl">Generate
+                    </button>
+                </form>
+            </div>
+        </div>
     );
 }
