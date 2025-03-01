@@ -1,9 +1,12 @@
 import '../app/globals.css';
 import Link from 'next/link'
+import Header from "./header";
+
 
 export default function Dashboard() {
     return (
         <div className="bg-gray-100">
+            <Header />
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-1/12 text-lg"
             >
                 <Link href="/" scroll={false}>Home

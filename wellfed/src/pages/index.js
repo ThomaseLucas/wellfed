@@ -2,10 +2,10 @@ import Image from "next/image";
 import Head from 'next/head';
 import { useState } from 'react';
 import '../app/globals.css';
+import Header from "./header.jsx";
 
 export default function Home() {
   const [message, setMessage] = useState(''); // State for displaying messages
-  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
