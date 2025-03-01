@@ -1,7 +1,8 @@
-'use client'
 import Image from "next/image";
 import Head from 'next/head';
 import { useState } from 'react';
+import '../app/globals.css';
+
 
 export default function Home() {
   const [message, setMessage] = useState(''); // State for displaying messages
