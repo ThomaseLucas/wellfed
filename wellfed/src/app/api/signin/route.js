@@ -1,4 +1,4 @@
-import clientPromise from ".../lib/mongodb.js";
+import clientPromise from "../../../lib/mongodb.js";
 
 export default async function POST(req){
     try{
@@ -22,7 +22,7 @@ export default async function POST(req){
         }
 
         return NextResponse.json({ username });
-        
+
     } catch (error){
         console.error(error);
         return {status: 500, body: "Internal server error"};
