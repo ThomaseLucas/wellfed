@@ -13,6 +13,9 @@ export default function Dashboard() {
             <div className="min-h-screen flex items-center justify-center">
                 <form>
                     <button
+                    type="button"
+
+                    onClick={() => window.location.href = '/recipeswiper'}  // Redirect to the signup page
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded h-30 w-50 m-10 text-2xl">Recipe
                     </button>
                     
