@@ -69,11 +69,9 @@ export default function MealPlan() {
     return (
 
         <div className="min-h-screen flex flex-col items-center bg-gray-100 p-6">
-            <h1 className="text-3xl font-bold mb-4 text-gray-600">Weekly Meal Plan</h1>
-        <div>
             <Header />
         <div className="min-h-screen flex flex-col items-center bg-black-100 p-6">
-            <h1 className="text-3xl font-bold mb-4">Weekly Meal Plan</h1>
+            <h1 className="text-3xl font-bold mb-4 text-gray-600">Weekly Meal Plan</h1>
 
             {error && <p className="text-red-500">{error}</p>}
 
@@ -146,7 +144,6 @@ export default function MealPlan() {
             ) : (
                 <p>No meal plan available.</p>
             )}
-        </div>
         </div>
         </div>
     );
