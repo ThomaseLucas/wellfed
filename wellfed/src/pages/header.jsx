@@ -4,22 +4,22 @@ import Header from "./header";
 
 const header = () => {
   return (
-    <div cl ssName="header">
-      <h1>Next Starter Project</h1>
+    <div cl ssName="bg-gray-100">
       <nav>
         <ul>
-          <li>
-            <Link href={"/"}>Home</Link>
-          </li>
-          <li>
-            <Link href={"/about"}>About</Link>
-          </li>
-          <li>
-            <Link href={"/contact"}>Contact</Link>
-          </li>
-          <li>
-            <Link href={"/"}>Login</Link>
-          </li>
+            <button className="inline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-lg w-1/4">
+            <Link href={"/dashboard"}>Home</Link>
+            </button>
+            <button className="inline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-lg w-1/4">
+              <Link href={"/mealplan"}>Meal Plan</Link>
+            </button>
+            <button className="inline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-lg w-1/4">
+              <Link href={"/contact"}>Contact</Link>
+            </button>
+            <button className="inline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-lg w-1/4">
+              <Link href={"/"}>Signout</Link>
+            </button>
+
         </ul>
       </nav>
     </div>

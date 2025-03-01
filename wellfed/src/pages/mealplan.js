@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import "../app/globals.css";
+import Header from "./header";
 
 export default function MealPlan() {
     const [mealPlan, setMealPlan] = useState(null);
@@ -46,6 +47,8 @@ export default function MealPlan() {
     }
 
     return (
+        <div>
+            <Header />
         <div className="min-h-screen flex flex-col items-center bg-black-100 p-6">
             <h1 className="text-3xl font-bold mb-4">Weekly Meal Plan</h1>
             {error && <p className="text-red-500">{error}</p>}
@@ -77,6 +80,7 @@ export default function MealPlan() {
             >
                 Regenerate Meal Plan
             </button>
+        </div>
         </div>
     );
 }
