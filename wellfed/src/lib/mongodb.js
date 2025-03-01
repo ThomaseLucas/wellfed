@@ -1,22 +1,16 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient } from "mongodb";
 
-if (!process.env.MONGODB_URI) {
-    throw new Error("MONGODB_URI is missing in .env.local");
-  }
-
-console.log(" Connecting to MongoDB...");
 
 let client;
-let clientPromise
+let clientPromise;
 
 try {
-    client = new MongoClient(process.env.MONGODB_URI); // Connection URI
-    clientPromise = client.connect(); // Connect to the MongoDB cluster
-    console.log("Connected to MongoDB!");
+  client = new MongoClient(process.env.MONGODB_URI, { serverSelectionTimeoutMS: 5000 });
+  clientPromise = client.connect()
 
 } catch (error) {
-    console.error("MongoDB Connection Error:", error);
+  console.error("CRITICAL ERROR: Failed to create MongoClient:", error);
+  clientPromise = Promise.resolve(null);
 }
-
 
 export default clientPromise;
