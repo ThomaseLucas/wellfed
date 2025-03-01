@@ -11,7 +11,7 @@ export default async function login(username, password) {
 
         if (res.status === 200) {
             console.log("Success");
-            window.location.href = '/dashboard';
+            window.location.replace('/dashboard');
             return res.json() // Explicit return
         } 
 
