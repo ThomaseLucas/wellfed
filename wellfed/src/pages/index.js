@@ -8,19 +8,15 @@ export default function Home() {
   const [message, setMessage] = useState(''); // State for displaying messages
   
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent form submission
-
-    // Get form values
+    event.preventDefault();
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    // Validate inputs
-    if (username === 'admin' && password === 'password123') {
-      setMessage('Login successful!');
-      window.open("/dashboard")
-    } else {
-      setMessage('Invalid username or password.');
-    }
+    
+
+    
+  
+    
   };
 
   return (
@@ -31,7 +27,7 @@ export default function Home() {
       </Head>
 
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center text-black">Login</h1>
         <form id="loginForm" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="username" className="block text-sm font-medium text-gray-700">
@@ -62,6 +58,12 @@ export default function Home() {
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Login
+          </button>
+          <button
+            type="submit"
+            className="padding-10-px w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Sign Up
           </button>
         </form>
 
