@@ -2,7 +2,7 @@ import Image from "next/image";
 import Head from 'next/head';
 import { useState } from 'react';
 import '../app/globals.css';
-import signUp from '../app/accountManagement/signUp';
+import login from '../app/accountManagement/login';
 
 export default function Login() {
   const [message, setMessage] = useState(''); // State for displaying messages
