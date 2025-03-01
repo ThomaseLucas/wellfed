@@ -2,16 +2,16 @@ import clientPromise from "@/lib/mongodb";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 
-export async function POST(req) {  // ✅ This must be a named export
-    console.log("🔹 Received POST /api/signin request");
+export async function POST(req) { 
+    console.log("Received POST /api/signin request");
 
     try {
         const client = await clientPromise;
         const db = client.db("users"); // Ensure correct database
         const users = db.collection("users");
 
-        const body = await req.json(); // ✅ Ensure JSON parsing
-        console.log("🔹 Received Data:", body);
+        const body = await req.json();
+        console.log("Received Data:", body);
 
         const { username, password } = body;
 
@@ -31,11 +31,11 @@ export async function POST(req) {  // ✅ This must be a named export
             return NextResponse.json({ message: "Invalid password" }, { status: 403 });
         }
 
-        console.log("✅ User authenticated:", username);
+        console.log("User authenticated:", username);
         return NextResponse.json({ username });
 
     } catch (error) {
-        console.error("❌ API Error:", error);
+        console.error("API Error:", error);
         return NextResponse.json({ message: "Internal server error" }, { status: 500 });
     }
 }
