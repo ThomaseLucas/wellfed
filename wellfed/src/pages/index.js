@@ -7,23 +7,6 @@ import signUp from '../app/accountManagement/signUp';
 export default function Home() {
   const [message, setMessage] = useState(''); // State for displaying messages
   
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const username = event.target.username.value;
-    const password = event.target.password.value;
-    console.log(event)
-
-    if(event.target.value === 'login') {
-
-      
-    } else {
-      console.log("sign up")
-      signUp(username, password);
-    }
-
-  
-    
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">

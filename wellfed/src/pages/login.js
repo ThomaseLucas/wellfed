@@ -13,15 +13,7 @@ export default function Login() {
     const password = event.target.password.value;
     console.log(event)
 
-      login(username, password);
-    
-
-
-
-
-
-    
-  
+      login(username, password); 
     
   };
 

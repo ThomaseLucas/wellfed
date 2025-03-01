@@ -7,9 +7,14 @@ export default function signUp(username, password) {
         },
         body: JSON.stringify({ username, password }),
     })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
+        .then(async (res) => {
+            let a = await res.json()
+            if(res.status === 200) {
+                console.log("sucess")
+                window.location.href = '/dashboard';
+            } else {
+                console.log("failed")
+            }
         })
         .catch((error) => {
             console.error('Error:', error);

@@ -7,7 +7,7 @@ import signUp from '../app/accountManagement/signUp';
 export default function Signup() {
   const [message, setMessage] = useState(''); // State for displaying messages
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const username = event.target.username.value;
     const password = event.target.password.value;
@@ -15,12 +15,6 @@ export default function Signup() {
 
       signUp(username, password);
 
-
-
-
-
-    
-  
     
   };
 
