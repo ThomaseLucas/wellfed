@@ -27,7 +27,6 @@ export async function POST(req) {
         
 
     let newUser = {
-        user_id: 1,
         username: `${username}`,
         password: `${hash}`,
         recipe_blacklist: [],
