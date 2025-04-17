@@ -1,2 +1,2 @@
 WellFed\
-an app that allows you to control the fed you
+A webapp that helps you control and plan your daily meals
